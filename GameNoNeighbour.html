@@ -79931,7 +79931,20 @@ _nS('controllers.Local'); _root['controllers']['Local']['standalone'] =
   B21
   B22
   Rho    ; Rho is a remainder of the old version of the code. Setting to 1 enables its elimination.
+  ; výpočty pre kĺzavý priemer payoffs - suffix za "-" znamena lag referencneho kola
+  pay-0-9
+  pay-9
+  pay-8
+  pay-7
+  pay-6
+  pay-5
+  pay-4
+  pay-3
+  pay-2
+  pay-1
+  pay-0   ; - aktualne kolo
 ]  ;; No need for payoff-matrix here
+
 
 patches-own [
   ;prob-to-cooperate   ;; Probability of choosing "Cooperate"
@@ -79951,6 +79964,17 @@ to setup
   set B12 A21
   set B21 A12
   set B22 A22
+  set pay-9 0   ; vynulovanie payoffs
+  set pay-8 0
+  set pay-7 0
+  set pay-6 0
+  set pay-5 0
+  set pay-4 0   ; vynulovanie payoffs
+  set pay-3 0
+  set pay-2 0
+  set pay-1 0
+  set pay-0 0
+  set pay-0-9 0    ; priemer payoffs poslednych 10 kol
   ask patches [
     set income-total-cooperate  prob-to-cooperate * ( B11 + B12 + B21 + B22 )
     set income-total-defect prob-to-defect * ( B11 + B12 + B21 + B22 )
@@ -79998,7 +80022,17 @@ to go
     update-learning
     update-color  ;; Update patch color based on new probabilities
   ]
-
+  set pay-9 pay-8   ; vynulovanie payoffs
+  set pay-8 pay-7
+  set pay-7 pay-6
+  set pay-6 pay-5
+  set pay-5 pay-4
+  set pay-4 pay-3
+  set pay-3 pay-2
+  set pay-2 pay-1
+  set pay-1 pay-0
+  set pay-0 mean [income-total] of patches
+  set pay-0-9 ( pay-9 + pay-8 + pay-7 + pay-6 + pay-5 + pay-4 + pay-3 + pay-2 + pay-1 + pay-0 ) / 10
   tick
 end
 
@@ -80278,7 +80312,7 @@ NIL
 0.0
 10.0
 0.0
-10.0
+3.0
 true
 false
 "" "\n"
@@ -80521,6 +80555,17 @@ MONITOR
 683
 No of players Playing defecting strategy
 count patches with [ strategy = 0 ]
+17
+1
+11
+
+MONITOR
+1491
+187
+1796
+232
+Mean of the Total Income (Avg - last 10 rounds)
+precision pay-0-9 2
 17
 1
 11

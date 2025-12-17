@@ -215,7 +215,7 @@ INPUTBOX
 194
 187
 A11
-0.0
+1.0
 1
 0
 Number
@@ -226,7 +226,7 @@ INPUTBOX
 310
 188
 A12
-1.0
+0.0
 1
 0
 Number
@@ -237,7 +237,7 @@ INPUTBOX
 193
 260
 A21
-1.0
+0.0
 1
 0
 Number
@@ -248,7 +248,7 @@ INPUTBOX
 309
 261
 A22
-0.0
+1.0
 1
 0
 Number
@@ -660,7 +660,7 @@ prob-of-replacement
 prob-of-replacement
 0
 1
-0.3
+0.0
 0.01
 1
 NIL

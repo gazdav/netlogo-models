@@ -430,11 +430,11 @@ Probability to cooperate 0.9 - 1
 1
 
 TEXTBOX
-99
-561
-325
-612
-Sensitivity to initial conditions:\nInitial probabilities in the wholespace
+47
+570
+355
+621
+                  Sensitivity to initial conditions:\nInitial probabilities to cooperate in the wholespace
 12
 0.0
 1
@@ -660,7 +660,7 @@ prob-of-replacement
 prob-of-replacement
 0
 1
-0.3
+0.0
 0.01
 1
 NIL
@@ -694,10 +694,20 @@ MONITOR
 1584
 698
 Number of Defectors
-count patches with [ strategy = 1 ]
+count patches with [ strategy = 0 ]
 17
 1
 11
+
+TEXTBOX
+1430
+138
+1580
+189
+Exponntialy smoothed income with smoothing parameter Rho
+12
+0.0
+1
 
 @#$#@#$#@
 ## WHAT IS IT?
